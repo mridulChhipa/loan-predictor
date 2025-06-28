@@ -738,15 +738,6 @@ export default function LoanPredictor() {
                                     </div>
                                 </div>
                             )}
-
-                            {/* <div className="bg-gray-800/50 border border-gray-600/50 rounded-xl p-4 text-xs">
-                                <details>
-                                    <summary className="text-gray-400 cursor-pointer hover:text-gray-300">Debug Information</summary>
-                                    <pre className="text-gray-500 mt-2 overflow-auto">
-                                        {JSON.stringify(prediction, null, 2)}
-                                    </pre>
-                                </details>
-                            </div> */}
                         </div>
                     )}
 

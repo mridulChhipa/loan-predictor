@@ -5,7 +5,6 @@ import LoanPredictor from '@/components/LoanPredictor'
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      {/* Background Pattern */}
       <div 
         className="absolute inset-0 opacity-40"
         style={{
@@ -14,7 +13,6 @@ export default function Home() {
       ></div>
       
       <div className="relative z-10">
-        {/* Header */}
         <header className="pt-12 pb-8">
           <div className="container mx-auto px-4 text-center">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6 shadow-xl">
@@ -52,14 +50,12 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Main Content */}
         <main className="container mx-auto px-4 pb-16">
           <div className="max-w-6xl mx-auto">
             <LoanPredictor />
           </div>
         </main>
 
-        {/* Footer */}
         <footer className="text-center py-8 border-t border-white border-opacity-10">
           <p className="text-gray-400">
             © 2024 AI Loan Predictor • Powered by Machine Learning •{' '}

@@ -10,7 +10,7 @@ async function loadModelData() {
             const dataPath = path.join(process.cwd(), 'public', 'model_data.json');
             const rawData = fs.readFileSync(dataPath, 'utf8');
             modelData = JSON.parse(rawData);
-            console.log('✅ Model data loaded for dynamic explanations');
+            console.log('Model data loaded for dynamic explanations');
         } catch (error) {
             throw new Error(`Model data loading failed: ${error.message}`);
         }
@@ -29,7 +29,6 @@ function initializeDynamicExplainers() {
                 initialized: true
             }
         };
-        console.log('✅ Dynamic explainers initialized');
     }
 }
 
@@ -154,15 +153,14 @@ function computeDynamicLIME(processedFeatures) {
 
     const originalPred = computeModelPrediction(processedFeatures);
     const limeExplanations = [];
-    const numPerturbations = 50; // Reduced for web performance
+    const numPerturbations = 50;
 
     for (let featureIdx = 0; featureIdx < processedFeatures.length; featureIdx++) {
         let sensitivitySum = 0;
 
         for (let p = 0; p < numPerturbations; p++) {
-            // Create perturbation
             const perturbedFeatures = [...processedFeatures];
-            const noise = (Math.random() - 0.5) * 0.2; // 20% noise
+            const noise = (Math.random() - 0.5) * 0.2
             perturbedFeatures[featureIdx] += noise;
 
             const perturbedPred = computeModelPrediction(perturbedFeatures);
@@ -205,8 +203,6 @@ function computeModelPrediction(processedFeatures) {
 
 async function computeDynamicPredictionWithExplanations(features) {
     try {
-        console.log('🚀 Starting dynamic prediction with fresh explanations...');
-
         const processedFeatures = preprocessFeatures(features);
         const probability = computeModelPrediction(processedFeatures);
         const prediction = probability > 0.5 ? 'APPROVED' : 'REJECTED';
@@ -252,7 +248,6 @@ async function computeDynamicPredictionWithExplanations(features) {
             most_sensitive: result.lime_explanations.slice(0, 3)
         };
 
-        console.log('✅ Dynamic explanations computed successfully');
         return result;
 
     } catch (error) {
